@@ -9,6 +9,10 @@ searchUser.addEventListener('keyup', (e) => {
     // Get input text
     const userText = e.target.value;
 
+    ui.clearError();
+
+    // document.querySelector('.repos').remove();
+
     if(userText !== '') {
         // make http call
         http.getUser(userText)
@@ -16,15 +20,20 @@ searchUser.addEventListener('keyup', (e) => {
             if(data.profileData.message === 'Not Found') {
                 // display error
                 ui.showAlert('User Not Found', 'alert error');
-                
             } else {
                 // display user profile
                 ui.displayProfile(data.profileData);
-                // console.log(data.profileData);
+
+                // display user repositories
+                ui.displayRepos(data.repos);
+
+                ui.clearError()
             }
         })
         .catch(err => new Error(err));
-    } 
+    } else {
+        document.querySelector('#profile').innerHTML ='';
+    }
 
     
 })
