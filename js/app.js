@@ -27,7 +27,7 @@ searchUser.addEventListener('keyup', (e) => {
                 ui.clearError()
             }
         })
-        .catch(err => new Error(err));
+        .catch(err => console.log(err));
     } else {
         document.querySelector('#profile').innerHTML ='';
     }
