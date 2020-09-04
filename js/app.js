@@ -2,7 +2,6 @@
 const http = new Github;
 const ui = new UI;
 
-
 const searchUser = document.querySelector('.search-container');
 
 searchUser.addEventListener('keyup', (e) => {
@@ -10,8 +9,6 @@ searchUser.addEventListener('keyup', (e) => {
     const userText = e.target.value;
 
     ui.clearError();
-
-    // document.querySelector('.repos').remove();
 
     if(userText !== '') {
         // make http call
@@ -34,6 +31,4 @@ searchUser.addEventListener('keyup', (e) => {
     } else {
         document.querySelector('#profile').innerHTML ='';
     }
-
-    
 })
